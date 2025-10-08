@@ -1,61 +1,54 @@
-export default function Footer(){
-    return (
+export default function Footer() {
+  return (
     <>
-      <div className="container">
-        <footer className="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
-          <div className="col-md-4 d-flex align-items-center">
-            <a
-              href="/"
-              className="mb-3 me-2 mb-md-0 text-body-secondary text-decoration-none lh-1"
-              aria-label="Bootstrap"
-            >
-              <svg
-                className="bi"
-                width="30"
-                height="24"
-                aria-hidden="true"
-              >
-                <use xlinkHref="#bootstrap"></use>
-              </svg>
+      <div
+        className="container-fluid"
+        style={{
+          width: "100%",
+          margin: 0,
+          padding:0,
+          position:"fixed",
+          bottom:"0"
+        }}
+      >
+        <footer
+          style={{
+            height:"5rem",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            borderTop: "1px solid grey",
+            padding: "10px 30px",
+            backgroundColor: "grey",
+            color: "white",
+            margin: 0,
+          }}
+        >
+          <div className="d-flex align-items-center">
+            <a href="/" className="text-decoration-none text-white">
+              TractorSaathi
             </a>
-            <span className="mb-3 mb-md-0 text-body-secondary">
+            <span
+              className="mb-0 ms-3"
+              style={{ fontSize: "14px", color: "lightgray" }}
+            >
               © 2025 Company, Inc
             </span>
           </div>
 
-          <ul className="nav col-md-4 justify-content-end list-unstyled d-flex">
-            <li className="ms-3">
-              <a
-                className="text-body-secondary"
-                href="#"
-                aria-label="Instagram"
-              >
-                <svg
-                  className="bi"
-                  width="24"
-                  height="24"
-                  aria-hidden="true"
-                >
-                  <use xlinkHref="#instagram"></use>
-                </svg>
-              </a>
-            </li>
-
-            <li className="ms-3">
-              <a
-                className="text-body-secondary"
-                href="#"
-                aria-label="Facebook"
-              >
-                <svg className="bi" width="24" height="24">
-                  <use xlinkHref="#facebook"></use>
-                </svg>
-              </a>
-            </li>
-          </ul>
+          <div>
+            <a className="text-white me-3 mx-3" href="#" aria-label="Facebook">
+              <i className="fa-brands fa-facebook"></i>
+            </a>
+            <a className="text-white me-3" href="#" aria-label="Instagram">
+              <i className="fa-brands fa-square-instagram"></i>
+            </a>
+            <a className="text-white" href="#" aria-label="Twitter">
+              <i className="fa-brands fa-twitter"></i>
+            </a>
+          </div>
         </footer>
       </div>
     </>
   );
 }
-
