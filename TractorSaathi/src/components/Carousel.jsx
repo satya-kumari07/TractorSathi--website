@@ -2,19 +2,28 @@ import React from "react";
 import tractor1 from "../assets/tractor1.jpg";
 import tractor3 from "../assets/tractor3.jpg";
 import tractor4 from "../assets/tractor4.jpg";
-
+import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap/dist/js/bootstrap.bundle.min.js";
 
 export default function Carousel() {
   return (
     <div
       id="carouselExampleFade"
       className="carousel slide carousel-fade"
-      style={{ width: "100%" ,marginBottom:"2rem"}}
+      data-bs-ride="carousel"
+      data-bs-interval="3000"
+      style={{ width: "100%", marginBottom: "2rem" }}
     >
       <div className="carousel-inner">
-        {/* 🔍 Search bar centered */}
-        <div className="carousel-caption" style={{zIndex:"10",display:"flex",justifyContent:"center"}}>
-          <div style={{width:"20rem"}}>
+        <div
+          className="carousel-caption"
+          style={{
+            zIndex: "10",
+            display: "flex",
+            justifyContent: "center",
+          }}
+        >
+          <div style={{ width: "20rem" }}>
             <input
               type="search"
               className="form-control"
@@ -22,14 +31,20 @@ export default function Carousel() {
               aria-label="Search"
             />
           </div>
-         
-          <div style={{position:"relative",left:-40,bottom:-10,zIndex:"30",color:"grey"}}>
-             <i
-              className="fa-solid fa-magnifying-glass position-absolute"></i>
+
+          <div
+            style={{
+              position: "relative",
+              left: -40,
+              bottom: -10,
+              zIndex: "30",
+              color: "grey",
+            }}
+          >
+            <i className="fa-solid fa-magnifying-glass position-absolute"></i>
           </div>
         </div>
 
-        {/* 🖼️ Carousel Images */}
         <div className="carousel-item active">
           <img
             src={tractor3}
@@ -68,7 +83,6 @@ export default function Carousel() {
         </div>
       </div>
 
-      {/* 🔘 Carousel Controls */}
       <button
         className="carousel-control-prev"
         type="button"
