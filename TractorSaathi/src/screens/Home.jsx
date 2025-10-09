@@ -8,7 +8,7 @@ export default function Home(){
         <div style={{height:"90rem"}}>
         <div><Navbar/></div>
 
-        <div style={{marginBottom:"2rem"}}>
+        <div>
             <Carousel/>
         </div>
 
