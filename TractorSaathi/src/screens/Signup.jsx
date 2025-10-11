@@ -1,10 +1,12 @@
 import { useState } from "react";
-import { Link,useNavigate } from "react-router-dom";
+import { Link ,useNavigate} from "react-router-dom";
 
 export default function Signup() {
   const [credentials, setCredentials] = useState({
+    name: "",
     email: "",
     password: "",
+    location: "",
   });
 
   let navigate = useNavigate();
@@ -12,14 +14,16 @@ export default function Signup() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const response = await fetch("http://localhost:3000/api/loginuser", {
+    const response = await fetch("http://localhost:3000/api/createuser", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
+        name: credentials.name,
         email: credentials.email,
         password: credentials.password,
+        location: credentials.location,
       }),
     });
 
@@ -29,9 +33,8 @@ export default function Signup() {
     if (!res.success) {
       alert("Enter valid credentials");
     }
+
     if(res.success){
-        localStorage.setItem("email",credentials.email);
-        localStorage.setItem("authToken", res.authToken);
         navigate("/");
     }
   };
@@ -50,7 +53,7 @@ export default function Signup() {
         height: "100vh",
       }}
     >
-    <form
+      <form
         onSubmit={handleSubmit}
         style={{
           width: "40%",
@@ -61,7 +64,21 @@ export default function Signup() {
           fontSize: "1.1rem",
         }}
       >
+        <div className="form-group">
+          <label htmlFor="name">Username</label>
+          <input
+            type="text"
+            className="form-control"
+            id="name"
+            placeholder="Enter name"
+            name="name"
+            value={credentials.name}
+            onChange={change}
+          />
+        </div>
+
         <br />
+
         <div className="form-group">
           <label htmlFor="email">Email address</label>
           <input
@@ -96,7 +113,24 @@ export default function Signup() {
             onChange={change}
           />
         </div>
+
         <br />
+
+        <div className="form-group">
+          <label htmlFor="location">Location</label>
+          <input
+            type="text"
+            className="form-control"
+            id="location"
+            placeholder="Enter location"
+            name="location"
+            value={credentials.location}
+            onChange={change}
+          />
+        </div>
+
+        <br />
+
         <div
           style={{
             display: "flex",
@@ -105,9 +139,9 @@ export default function Signup() {
             alignItems: "center",
           }}
         >
-        <Link to="/createuser" style={{ color: "white", fontSize: "1.2rem" }}>
-            create a new account
-        </Link>
+          <Link to="/login" style={{ color: "white", fontSize: "1.2rem" }}>
+            Already have an account?
+          </Link>
           <br />
           <button type="submit" className="btn btn-primary">
             Submit
